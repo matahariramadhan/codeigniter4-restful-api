@@ -35,7 +35,12 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->post('students', 'Students::create');
+$routes->get('students', 'Students::index');
+$routes->get('students/(:segment)', 'Students::show/$1');
+$routes->put('students/(:segment)', 'Students::update/$1');
+$routes->delete('students/(:segment)', 'Students::delete/$1');
+
 
 /*
  * --------------------------------------------------------------------
